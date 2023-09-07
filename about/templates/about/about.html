@@ -11,23 +11,30 @@
 <!-- Page Header End -->
 {% endblock  %}
 {% block content %}
+
+<!--{{listProjects}}-->
+
 {% load static %}
 <!-- About Start -->
+
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
             <h2 class="text-primary font-secondary">About Us</h2>
             <h1 class="display-4 text-uppercase">Welcome To CakeZone</h1>
         </div>
+        {% for project in listProjects %}
         <div class="row gx-5">
             <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 400px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="{%static 'core/img/about.jpg'%}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="{{project.image.url}}" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-6 pb-5">
-                <h4 class="mb-4">Tempor erat elitr rebum clita. Diam dolor diam ipsum erat lorem sed stet labore lorem sit clita duo</h4>
-                <p class="mb-5">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
+                <h4 class="mb-4">{{project.title}}</h4>
+                <p class="mb-5">{{project.description}}</p>
+{% endfor %} 
+
                 <div class="row g-5">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
@@ -48,6 +55,7 @@
         </div>
     </div>
 </div>
+
 <!-- About End -->
 
 {% endblock %}
